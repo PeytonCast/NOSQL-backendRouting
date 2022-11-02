@@ -1,0 +1,24 @@
+{
+  "name": "nosql-backendrouting",
+  "version": "1.0.0",
+  "description": "This is a NoSQL backend database API route powered by MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeytonCast/NOSQL-backendRouting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeytonCast/NOSQL-backendRouting/issues"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  }
+}
