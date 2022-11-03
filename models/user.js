@@ -1,20 +1,40 @@
 // User:
+//  has many friends
+//  has many thoughts
 
-// username
+const { Schema, model } = require('mongoose');
+const validator = require('validator');
 
-// String
-// Unique
-// Required
-// Trimmed
 
-// email
-// String
-// Required
-// Unique
-// Must match a valid email address (look into Mongoose's matching validation)
+const userSchema = new Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            unique: true,
+            required: true,
+            validate: [ validator.isEmail, 'email is invalid']
+            
+        },
+        thoughts: [// Array of _id values referencing the Thought model
+        ],
+        friends: [// Array of _id values referencing the friends model
+        ],
 
-// thoughts
-// Array of _id values referencing the Thought model
+    },
+    {
+        toJSON: {
+          getters: true,
+        },
+    }
+)
+const User = model('user', userSchema);
 
-// friends
-// Array of _id values referencing the User model (self-reference)
+module.exports = User;
