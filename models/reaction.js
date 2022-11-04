@@ -1,19 +1,28 @@
-// Reaction (SCHEMA ONLY)
+// reactions (These are like replies)
+// Array of nested documents created with the reactionSchema
+const { Schema } = require('mongoose');
 
-// reactionId
-// Use Mongoose's ObjectId data type
-// Default value is set to a new ObjectId
+const reactionsSchema = new Schema({
+    reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId()
+    },
+    reactionBody: {
+        type: String, 
+        required: true,
+        max_length:280
+    },
+    // user name of the reactor/commenter 
+    username: {
+        type: String, 
+        required: true,
+    },
+    createdAt: {
+        type: Date, 
+        default: Date.now
+        // Use a getter method to format the timestamp on query
+    },
+   
+})
 
-// reactionBody
-// String
-// Required
-// 280 character maximum
-
-// username
-// String
-// Required
-
-// createdAt
-// Date
-// Set default value to the current timestamp
-// Use a getter method to format the timestamp on query
+module.exports = reactionsSchema

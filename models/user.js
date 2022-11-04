@@ -23,18 +23,26 @@ const userSchema = new Schema(
             validate: [ validator.isEmail, 'email is invalid']
             
         },
-        thoughts: [// Array of _id values referencing the Thought model
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'thoughts',
+            }
         ],
-        friends: [// Array of _id values referencing the friends model
+        friends: [
+            {
+            type: Schema.Types.ObjectId,
+            ref: 'users',
+            }
         ],
 
     },
-    {
-        toJSON: {
-          getters: true,
-        },
-    }
+    // {
+    //     toJSON: {
+    //       getters: true,
+    //     },
+    // }
 )
-const User = model('user', userSchema);
+const User = model('users', userSchema);
 
 module.exports = User;
