@@ -23,6 +23,12 @@ const reactionsSchema = new Schema({
         // Use a getter method to format the timestamp on query
     },
    
-})
+},
+{
+    toJSON: {
+      getters: true,
+    },
+    id: false,
+  })
 
 module.exports = reactionsSchema

@@ -1,8 +1,8 @@
-// here is where i will need to write a my connection for the server
 const { connect, connection } = require('mongoose');
 
+
 const connectionString =
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/studentsDB';
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialDB';
 
 connect(connectionString, {
   useNewUrlParser: true,

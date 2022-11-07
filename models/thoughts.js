@@ -20,8 +20,12 @@ const thoughtsSchema = new Schema({
         required: true,
     },
     reactions: [reactionsSchema]
-
-})
+},
+{
+    toJSON: {
+      getters: true,
+    },
+  })
 
 const Thoughts = model('thoughts', thoughtsSchema)
 
