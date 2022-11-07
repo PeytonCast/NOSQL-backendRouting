@@ -15,4 +15,23 @@ module.exports = {
           return res.status(500).json(err);
         });
     },
+     // Get a single User
+    getSingleUser(req, res) {
+    User.findOne({ _id: req.params.userId })
+      .select('-__v')
+      .populate('thoughts')//the value of thoughts array 
+      .populate('friends')//the value of friends array 
+      .then(async (SingleUser) =>
+        !SingleUser
+          ? res.status(404).json({ message: 'No student with that ID' })
+          : res.json({
+            SingleUser,
+      
+            })
+      )
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
+  },
 }
