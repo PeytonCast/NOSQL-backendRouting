@@ -25,6 +25,6 @@ router.route('/:userId').get(getSingleUser).delete(deleteUser)
 
 //  update a user by an id
 // /api/users/:userId
-router.route('/:userId').get(getSingleUser).update(updateUser)
+router.route('/:userId').get(getSingleUser).put(updateUser)
 
 module.exports = router;
