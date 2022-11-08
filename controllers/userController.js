@@ -1,14 +1,14 @@
-const { User } = require("../models");
+const { User, Thoughts } = require("../models");
 
 module.exports = {
     // Get all users
     getUsers(req, res) {
       User.find()
         .then(async (users) => {
-          const studentObj = {
+          const userObj = {
             users
           };
-          return res.json(studentObj);
+          return res.json(userObj);
         })
         .catch((err) => {
           console.log(err);
@@ -23,7 +23,7 @@ module.exports = {
       .populate('friends')//the value of friends array 
       .then(async (SingleUser) =>
         !SingleUser
-          ? res.status(404).json({ message: 'No student with that ID' })
+          ? res.status(404).json({ message: 'No user with that ID' })
           : res.json({
             SingleUser,
       
@@ -34,4 +34,27 @@ module.exports = {
         return res.status(500).json(err);
       });
   },
+  // Create a User
+      createUser(req, res) {
+        User.create(req.body)
+          .then((User) => res.json(User))
+          .catch((err) => {
+            console.log(err);
+            return res.status(500).json(err);
+          });
+  },
+  // Delete a user
+  deleteUser(req, res) {
+    User.findOneAndDelete({ _id: req.params.userId })
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: 'No user with that ID' })
+          : Thoughts.deleteMany({ _id: { $in: user.thoughts } })
+      )
+      .then(() => res.json({ message: 'user and thoughts deleted!' }))
+      .catch((err) => res.status(500).json(err));
+  },
+
+
+
 }
