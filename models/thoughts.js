@@ -23,8 +23,10 @@ const thoughtsSchema = new Schema({
 },
 {
     toJSON: {
+      virtuals: true,
       getters: true,
     },
+     id: false,
   })
 
 const Thoughts = model('thoughts', thoughtsSchema)
