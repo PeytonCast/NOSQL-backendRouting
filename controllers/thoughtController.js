@@ -18,9 +18,9 @@ module.exports = {
       },
        // Get a single Thought
     getSingleThought(req, res) {
-     Thoughts.findOne({ _id: req.params.ThoughtId })
+     Thoughts.findOne({ _id: req.params.thoughtId })
         .select('-__v')
-        .populate('reations')//the value of reations array 
+        .populate('reactions')//the value of reations array 
         .then(async (SingleThought) =>
           !SingleThought
             ? res.status(404).json({ message: 'No thought with that ID' })
@@ -99,7 +99,7 @@ module.exports = {
   removeReaction(req, res) {
     Thoughts.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { $pull: { reactions: { reactionId: req.body.reactionId } } },
       { runValidators: true, new: true }
     )
       .then((thought) =>
