@@ -31,5 +31,9 @@ const reactionsSchema = new Schema({
     id: false,
     _id: false
   })
-
+  reactionsSchema.virtual('formatDate').get(function () {
+    return `${new Date(this.createdAt).getMonth() + 1}/${new Date(this.createdAt).getDate()}/${
+        new Date(this.createdAt).getFullYear()
+      }`;
+  });
 module.exports = reactionsSchema
