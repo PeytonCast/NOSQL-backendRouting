@@ -30,6 +30,10 @@ const thoughtsSchema = new Schema({
 thoughtsSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
   });
+  thoughtsSchema.virtual('formatDate').get(function () {
+    return `${new Date(this.createdAt).getMonth() + 1}/${new Date(this.createdAt).getDate()}/${
+        new Date(this.createdAt).getFullYear()
+      }`;})
 const Thoughts = model('thoughts', thoughtsSchema)
 
 module.exports = Thoughts
