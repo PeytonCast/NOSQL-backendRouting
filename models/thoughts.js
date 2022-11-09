@@ -26,7 +26,6 @@ const thoughtsSchema = new Schema({
       virtuals: true,
       getters: true,
     },
-     id: false,
   })
 
 const Thoughts = model('thoughts', thoughtsSchema)

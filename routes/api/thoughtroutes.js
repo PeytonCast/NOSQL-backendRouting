@@ -28,4 +28,12 @@ router.route('/:ThoughtId').get(getSingleThought).delete(deleteThought);
 // delete thought
 // /api/Thoughts/:ThoughtId
 router.route('/:thoughtId').get(getSingleThought).put(updateThought);
+
+// 
+// /api/thoughts/:thoughtId/reactions
+router.route('/:thoughtId/reactions').post(addReaction);
+
+// 
+// /api/thoughts/:thoughtId/reactions/:reactionId
+router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 module.exports = router;

@@ -1,6 +1,6 @@
 // reactions (These are like replies)
 // Array of nested documents created with the reactionSchema
-const { Schema } = require('mongoose');
+const { Schema, Types} = require('mongoose');
 
 const reactionsSchema = new Schema({
     reactionId: {
@@ -29,6 +29,7 @@ const reactionsSchema = new Schema({
       getters: true,
     },
     id: false,
+    _id: false
   })
 
 module.exports = reactionsSchema
