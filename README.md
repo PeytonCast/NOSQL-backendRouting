@@ -21,7 +21,7 @@
   Run `npm i` to install all node modules. 
   Next run `node server.js` this will run the DataBase and API routes locally.
   Follow the demo video for the exact routing or read the routes folder which will also give exact routing instructions.
- [badly done demo video](https://drive.google.com/file/d/1r4WZBEJBplHDq-UiCn7rIVrb9FVDCm0G/view)
+ [badly done demo video](https://drive.google.com/file/d/1tein9eqr6WI53F7kV3HrKoqPMpno_Mvd/view)
    
    <!--CONTRIBUTING-->
    ### [Contributing](contribute)
