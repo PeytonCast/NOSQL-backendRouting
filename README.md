@@ -6,7 +6,9 @@
   
   Description: <br>
   This is a NoSQL backend database API route powered by MongoDB.
-  
+  <br>
+  ![image](https://user-images.githubusercontent.com/107663364/201216316-4d650de1-5167-4634-9b9d-cd8f22830922.png)
+  <br>
   <!--TABLE OF CONTENTS-->
    ## Table of Contents
   1. [Installation](#install)
@@ -19,7 +21,7 @@
   Run `npm i` to install all node modules. 
   Next run `node server.js` this will run the DataBase and API routes locally.
   Follow the demo video for the exact routing or read the routes folder which will also give exact routing instructions.
- 
+ [badly done demo video](https://drive.google.com/file/d/1r4WZBEJBplHDq-UiCn7rIVrb9FVDCm0G/view)
    
    <!--CONTRIBUTING-->
    ### [Contributing](contribute)
