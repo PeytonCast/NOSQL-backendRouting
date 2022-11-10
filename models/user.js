@@ -29,14 +29,14 @@ const userSchema = new Schema(
         thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'thoughts',
+                ref: 'Thoughts',
             }
         ],
         // this is an array with the ids of thoughts schema model
         friends: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'users',
+                ref: 'Users',
             }
         ],
 
@@ -52,7 +52,7 @@ const userSchema = new Schema(
 userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
   });
-const User = model('users', userSchema);
+const User = model('Users', userSchema);
 
 const handleError = (err) => console.error(err);
 

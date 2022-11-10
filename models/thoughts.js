@@ -1,6 +1,6 @@
 // Thought:
 const { Schema, model } = require('mongoose');
-const reactionsSchema = require('./reaction');
+const reactionsSchema = require('./Reaction');
 
 const thoughtsSchema = new Schema({
     thoughtText: {
@@ -30,10 +30,10 @@ const thoughtsSchema = new Schema({
 thoughtsSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
   });
-  thoughtsSchema.virtual('formatDate').get(function () {
+thoughtsSchema.virtual('formatDate').get(function () {
     return `${new Date(this.createdAt).getMonth() + 1}/${new Date(this.createdAt).getDate()}/${
         new Date(this.createdAt).getFullYear()
-      }`;})
-const Thoughts = model('thoughts', thoughtsSchema)
+  }`;})
+const Thoughts = model('Thoughts', thoughtsSchema)
 
 module.exports = Thoughts
